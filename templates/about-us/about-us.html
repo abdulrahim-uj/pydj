@@ -1,0 +1,204 @@
+{% load static %}
+<!-- * ABOUT SECTION START -->
+<section class="about section" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>About Me</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="about-content padd-15">
+                <!-- * IF START -->
+                {% if profiler %}
+                <!-- * -->
+                {% if about %}
+                <div class="row">
+                    <div class="about-text padd-15">
+                        <h3 class="hello">
+                            I'm {% with profiler.name.split as names %}
+                            <!--  -->
+                            {% for i in names %}
+                            <span class="name">{{i|first|title}}</span
+                            >{{i|slice:"1:"}}
+                            <!--  -->
+                            {% endfor %}
+                            <!--  -->
+                            {% endwith %}
+                            <!--  -->
+                            and
+                            <!--  -->
+                            {% with about.profession.split as professions %}
+                            <!--  -->
+                            {% for p in professions %}
+                            <!--  -->
+                            <span class="name">{{p|first|title}}</span
+                            >{{p|slice:"1:"}}
+                            <!--  -->
+                            {% endfor %}
+                            <!--  -->
+                            {% endwith %}
+                        </h3>
+                        <p>{{about.description}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="personal-info padd-15">
+                        <div class="row">
+                            <div class="info-item padd-15">
+                                <p>
+                                    Birthday :
+                                    <span>{{profiler.dob}}</span>
+                                </p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>Age : <span>22</span></p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>
+                                    Website :
+                                    <span>{{about.website}}</span>
+                                </p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>
+                                    Email :
+                                    <span>{{profiler.email}}</span>
+                                </p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>
+                                    Degree :
+                                    <span>{{profiler.qualification}}</span>
+                                </p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>
+                                    Phone :
+                                    <span>{{profiler.phone}}</span>
+                                </p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>
+                                    City :
+                                    <span>{{profiler.city}}</span>
+                                </p>
+                            </div>
+                            <div class="info-item padd-15">
+                                {% if about.freelance %}
+                                <p>
+                                    Freelnace :
+                                    <span>Available</span>
+                                </p>
+                                {% else %}
+                                <p>
+                                    Freelnace :
+                                    <span>Not Available</span>
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="buttons padd-15">
+                                <a
+                                    href="#contact"
+                                    data-section-index="1"
+                                    class="btn hire-me"
+                                    >Hire Me</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * -->
+                    <div class="skills padd-15">
+                        <div class="row">
+                            {% if skill %}
+                            <!-- * -->
+                            {% for skills in skill %}
+                            <div class="skill-item padd-15">
+                                <h5>{{skills.skill_name}}</h5>
+                                <div class="progress">
+                                    <div
+                                        class="progress-in"
+                                        style="width: {{skills.skill_progress}}%"
+                                    ></div>
+                                    <div class="skill-percent">
+                                        {{skills.skill_progress}}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- >> -->
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %} {% endif %}
+                <!-- >> ENDIF -->
+                <!-- ??????????????????????????????????????? -->
+                <div class="row">
+                    <div class="experience padd-15">
+                        <h3 class="title">Experience</h3>
+                        <div class="row">
+                            <div class="timeline-box padd-15">
+                                <div class="timeline shadow-dark">
+                                    <!-- ===== timeline item ===== -->
+                                    {% if exp %}
+                                    <!-- * -->
+                                    {% for xperiance in exp %}
+                                    <div class="timeline-item">
+                                        <div class="circle-dot"></div>
+                                        <h3 class="timeline-date">
+                                            <i class="fa fa-calendar"></i>
+                                            {{xperiance.start}} -
+                                            {{xperiance.end}}
+                                        </h3>
+                                        <h4 class="timeline-title">
+                                            {{xperiance.profession}}
+                                        </h4>
+                                        <p class="timeline-text">
+                                            {{xperiance.description}}
+                                        </p>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- >> -->
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="education padd-15">
+                        <h3 class="title">Education</h3>
+                        <div class="row">
+                            <div class="timeline-box padd-15">
+                                <div class="timeline shadow-dark">
+                                    <!-- ===== timeline item ===== -->
+                                    {% if edu %}
+                                    <!-- * -->
+                                    {% for study in edu %}
+                                    <div class="timeline-item">
+                                        <div class="circle-dot"></div>
+                                        <h3 class="timeline-date">
+                                            <i class="fa fa-calendar"></i>
+                                            {{study.start}} - {{study.end}}
+                                        </h3>
+                                        <h4 class="timeline-title">
+                                            {{study.area_of_study}}
+                                        </h4>
+                                        <p class="timeline-text">
+                                            {{study.description}}
+                                        </p>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- >> -->
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- >> END ABOUT SECTION -->

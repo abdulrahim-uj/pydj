@@ -1,0 +1,152 @@
+{% load static %}
+
+<!-- * RESUME SECTION START -->
+
+<section class="resume section" id="resume">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Resume</h2>
+            </div>
+        </div>
+        <div
+            class="row"
+            style="
+                align-content: center;
+                justify-content: center;
+                padding-bottom: 50px;
+            "
+        >
+            <div class="box-container">
+                <div class="box">
+                    {% if profiler.profile_picture %}
+                    <div class="image">
+                        <img
+                            src="{{profiler.profile_picture.thumbnail.200x200}}"
+                            alt="{{profiler.name}}"
+                            srcset=""
+                        />
+                    </div>
+                    {% endif %}
+                    <div class="content">
+                        <div class="icons">
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-globe"></i>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="hello_card title">
+                                {% with profiler.name.split as names %}
+                                <!--  -->
+                                {% for i in names %}
+                                <span class="name">{{i|first|title}}</span
+                                >{{i|slice:"1:"}}
+                                <!--  -->
+                                {% endfor %}
+                                <!--  -->
+                                {% endwith %}
+                            </h3>
+                            <span class="post">{{about.profession}}</span>
+                            <a href="#">{{profiler.phone}}</a>
+                            <a href="#">{{about.website}}</a>
+                            <a href="#">{{profiler.email}}</a>
+                        </div>
+                    </div>
+                    <div class="share">
+                        <a
+                            href="https://{{about.linkedin}}"
+                            class="fab fa-linkedin-in"
+                        ></a>
+                        <a
+                            href="https://{{about.github}}"
+                            class="fab fa-github"
+                        ></a>
+                        <a
+                            href="https://{{about.skype}}"
+                            class="fab fa-skype"
+                        ></a>
+                        <a
+                            href="https://{{about.facebook}}"
+                            class="fab fa-facebook-f"
+                        ></a>
+                        <a
+                            href="https://{{about.twitter}}"
+                            class="fab fa-twitter"
+                        ></a>
+                        <a
+                            href="https://{{about.instagram}}"
+                            class="fab fa-instagram"
+                        ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="row padd-15"
+            style="
+                align-content: center;
+                justify-content: center;
+                padding-bottom: 50px;
+            "
+        >
+            {% if resume %}
+            <!--  -->
+            {% for cv in resume %}
+            <!--  -->
+            {% if cv.resume_format == 'pdf' %}
+{#            <object#}
+{#                data="{{cv.resume_file.url}}#toolbar=0"#}
+{#                type="application/pdf"#}
+{#                width="75%"#}
+{#                height="500px"#}
+{#            ></object>#}
+            {% endif %}
+            <!--  -->
+            {% endfor %}
+            <!--  -->
+            {% endif %}
+            <!--  -->
+            <!-- >> -->
+            <div class="about-content padd-15">
+                <div class="form-item col-6 padd-15"></div>
+                <!--  -->
+            </div>
+        </div>
+        <div
+            class="row padd-15"
+            style="
+                align-content: center;
+                justify-content: center;
+                padding-bottom: 50px;
+            "
+        >
+            <div class="personal-info padd-15">
+                <div class="row">
+                    <div class="buttons padd-15">
+                        <!--  -->
+                        {% if resume %}
+                        <!--  -->
+                        {% for cv in resume %}
+                        <!--  -->
+                        {% if cv.resume_format == 'pdf' %}
+                        <a
+                            href="{{cv.resume_file.url}}"
+                            class="btn"
+                            id="fullscreen-btn"
+                            download="download"
+                            >Download CV</a
+                        >
+
+                        {% endif %}
+                        <!--  -->
+                        {% endfor %}
+                        <!--  -->
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- >> END RESUME SECTION -->

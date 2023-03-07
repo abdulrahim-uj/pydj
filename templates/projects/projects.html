@@ -1,0 +1,39 @@
+{% load static %}
+<!-- * PROJECTS SECTION START -->
+<section class="portfolio section" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Portfolio</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="portfolio-heading padd-15">
+                <h2>My Last Projects :</h2>
+            </div>
+        </div>
+        <div class="row">
+            <!-- ====== portfolio item start ====== -->
+            {% if projects %}
+            <!-- * -->
+            {% for work in projects %}
+            <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                    {% if work.project_image %}
+                    <div class="portfolio-img">
+                        <img
+                            src="{{work.project_image.thumbnail.200x200}}"
+                            alt="{{work.project_name}}"
+                        />
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <!-- >> -->
+            {% endif %}
+            <!-- ====== portfolio item End ====== -->
+        </div>
+    </div>
+</section>
+<!-- >> END PROJECTS SECTION -->

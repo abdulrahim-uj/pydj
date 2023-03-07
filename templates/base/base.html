@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{title}} | {{app_title}}</title>
+        <!-- * INCLUDE CSS FILES -->
+        {% include 'includes/extras/css.html' %}
+        <!-- >> END CSS FILES -->
+    </head>
+    <body>
+        <!-- * MAIN CONTENT CONTAINER -->
+        <div class="main-container">
+            <!-- * ASIDE NAVIGATION BAR START -->
+            {% include 'includes/navigation/navigator.html' %}
+            <!-- >> END ASIDE NAVIGATION BAR -->
+
+            <!-- * CONTENTS START -->
+            <div class="main-content">
+                {% block content %}
+                <!-- **************************** RENDER PAGES HERE FROM VIEWS -->
+                {% endblock %}
+
+                <!-- * SECTION HOME START -->
+                {% include 'home/home.html' %}
+                <!-- >> END SECTION HOME -->
+
+                <!-- * SECTION ABOUT START -->
+                {% include 'about-us/about-us.html' %}
+                <!-- >> END SECTION ABOUT -->
+
+                <!-- * SECTION SERVICES START -->
+                {% include 'services/services.html' %}
+                <!-- >> END SECTION SERVICES -->
+
+                <!-- * SECTION RESUME START -->
+                {% include 'resume/resume.html' %}
+                <!-- >> END SECTION RESUME -->
+
+                <!-- * SECTION PROJECTS START -->
+                {% include 'projects/projects.html' %}
+                <!-- >> END SECTION PROJECTS -->
+
+                <!-- * SECTION BLOG START -->
+                <!-- ??? -->
+                <!-- >> END SECTION BLOG -->
+
+                <!-- * SECTION CONTACT START -->
+                {% include 'hire/hire.html' %}
+                <!-- >> END SECTION CONTACT -->
+            </div>
+            <!-- >> END CONTENTS -->
+        </div>
+        <!-- >> END MAIN CONTAINER -->
+
+        <!-- * STYLE SWITCHER -->
+        {% include 'includes/style-switcher/style-switcher.html' %}
+        <!-- >> END STYLE SWITCHER -->
+
+        <!-- * STATIC BLOCK START -->
+        {% include 'includes/extras/js.html' %}
+        <!-- >> END STATIC BLOCK -->
+        <!-- * IZITOAST PACKAGE -->
+        {% include 'includes/izitoast.html' %}
+        <!-- >> END IZITOAST -->
+    </body>
+</html>

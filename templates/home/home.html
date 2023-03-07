@@ -1,0 +1,60 @@
+{% load static %}
+<!-- * HOME SECTION -->
+<section class="home active section" id="home">
+    <div class="container">
+        <div class="row">
+            {% if profiler %}
+            <div class="home-info padd-15">
+                <h3 class="hello title">
+                    Hello, my name is
+                    <!-- <span class="name">{{profiler.name}}</span> -->
+                    {% with profiler.name.split as names %}
+                    <!--  -->
+                    {% for i in names %}
+                    <span class="name">{{i|first|title}}</span>{{i|slice:"1:"}}
+                    <!--  -->
+                    {% endfor %}
+                    <!--  -->
+                    {% endwith %}
+                </h3>
+                <h3 class="my-profession">
+                    I' m a
+                    <span class="typing"></span>
+                </h3>
+                {% if about.description %}
+                <p>{{about.description|truncatewords:50 }}</p>
+                {% endif %}
+                <!--  -->
+                {% if resume %}
+                <!--  -->
+                {% for cv in resume %}
+                <!--  -->
+                {% if cv.resume_format == 'pdf' %}
+                <a
+                    href="{{cv.resume_file.url}}"
+                    class="btn"
+                    id="fullscreen-btn"
+                    download="download"
+                    >Download CV</a
+                >
+
+                {% endif %}
+                <!--  -->
+                {% endfor %}
+                <!--  -->
+                {% endif %}
+            </div>
+            {% endif %}
+            <!-- * -->
+            {% if profiler.profile_picture %}
+            <div class="home-img padd-15">
+                <img
+                    src="{{profiler.profile_picture.thumbnail.200x200}}"
+                    alt="{{profiler.name}}"
+                />
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- >> END HOME SECTION -->

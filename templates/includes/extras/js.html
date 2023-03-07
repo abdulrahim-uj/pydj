@@ -1,0 +1,31 @@
+{% load static %}
+
+<!-- * TYPER SCRIPT START -->
+{% if typer %}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+    referrerpolicy="no-referrer"
+></script>
+{% endif %}
+<!-- >> END TYPER SCRIPT -->
+
+<!-- * BASE SCRIPT START -->
+{% if base_script %}
+<script src="{% static 'scripts/script.js' %}"></script>
+{% endif %}
+<!-- >> END BASE SCRIPT -->
+
+<!-- * STYLE SWITCHER START -->
+{% if style_switcher %}
+<script src="{% static 'scripts/style-switcher.js' %}"></script>
+{% endif %}
+<!-- >> END STYLE SWITCHER -->
+
+<!-- * DISABLE DEV TOOLS START -->
+{% if disable_dev_tools %}
+<script
+    disable-devtool-auto
+    src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"
+></script>
+{% endif %}
+<!-- >> END DISABLE DEV TOOLS -->
